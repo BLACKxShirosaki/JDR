@@ -14,8 +14,8 @@ Les images sont séparées du CSS : aucune chaîne d’image Base64 à éditer.
 
 ## Réglages
 
-Palette : variables --fd-* au début de sheet.css.
-Titre visuel : --fd-titre-fiche.
-Bouquets Identité : chercher BOUQUETS FLEURIS ; opacity:.28.
-Asset : assets/identite/bouquet-fleuri.webp.
-Les parties du bouquet cachées sous le cadre ont été reconstituées.
+- Palette : variables --fd-* au début de sheet.css.
+- Titre visuel : --fd-titre-fiche.
+- Bouquets Identité : chercher BOUQUETS FLEURIS ; opacity:.28.
+- Asset : assets/identite/bouquet-fleuri.webp.
+- Les parties du bouquet cachées sous le cadre ont été reconstituées.
