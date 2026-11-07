@@ -402,38 +402,37 @@ p { margin:5px 0; }
   #tab-sheet .resource .meter::before { transition:none; }
 }
 
-/* PORTRAIT — nom centré dans le cartouche ivoire de l’asset. */
-#tab-sheet .portrait-card { position:relative; container-type:inline-size; }
-#tab-sheet .portrait-caption {
-  position:absolute; z-index:3; left:20%; right:20%; top:87%; height:9%;
-  display:flex; align-items:center; justify-content:center;
-  margin:0; padding:0; text-align:center;
-}
-#tab-sheet .portrait-caption strong {
-  display:block; min-width:0; max-width:100%; margin:0;
-  font-size:18px; font-size:clamp(12px,5.5cqw,21px);
-  font-weight:normal; line-height:1.15; color:#5c4b3b;
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-}
-#tab-sheet .portrait-caption > span {
-  position:absolute; top:160%; left:0; right:0; font-size:12px;
-}
-#tab-sheet .portrait-caption > span:empty { display:none; }
-
-/* Centrage du nom dans le cartouche ivoire */
-#tab-sheet .portrait-caption {
-  top: 90.2%;
-  bottom: auto;
-  left: 20%;
-  right: 20%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  transform: translateY(-50%);
+/* Placer le nom sur le cartouche de l’avatar */
+#tab-sheet .portrait-card {
+  position: relative !important;
 }
 
-#tab-sheet .portrait-caption strong {
+#tab-sheet .portrait-card > .portrait-caption {
+  position: absolute !important;
+  inset: auto !important;
+  top: 90.2% !important;
+  left: 20% !important;
+  width: 60% !important;
+  height: auto !important;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateY(-50%) !important;
+  z-index: 5;
+}
+
+#tab-sheet .portrait-caption > strong {
   margin: 0;
   padding: 0;
+  max-width: 100%;
+  font-size: clamp(12px, 5.5cqw, 21px);
   line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
