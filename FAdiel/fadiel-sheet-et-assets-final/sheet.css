@@ -365,3 +365,55 @@ p { margin:5px 0; }
 /* Réserver le dessus aux champs et aux interactions : décor non cliquable. */
 #tab-sheet .identity-card::before,
 #tab-sheet .identity-card::after { pointer-events:none; }
+
+/* Jauges des ressources : PV, PM et Héroïsme */
+#tab-sheet .resource.hp {
+  --resource-color: #f29d84;
+}
+
+#tab-sheet .resource.mp {
+  --resource-color: #8fbc8a;
+}
+
+#tab-sheet .resource.heroism {
+  --resource-color: #d8b45a;
+}
+
+#tab-sheet .resource .meter,
+#tab-sheet .resource .heroism-pips {
+  display: block;
+  position: relative;
+  height: 9px;
+  min-height: 0;
+  margin: 12px 0 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgb(92 75 59 / 12%);
+  border-radius: 999px;
+  background: rgb(92 75 59 / 10%);
+}
+
+/* Remplace visuellement les anciens remplissages et losanges */
+#tab-sheet .resource .meter > *,
+#tab-sheet .resource .heroism-pips > * {
+  display: none;
+}
+
+#tab-sheet .resource .meter::before,
+#tab-sheet .resource .heroism-pips::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--resource-fill, 0%);
+  border-radius: inherit;
+  background: var(--resource-color);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 35%);
+  transition: width 250ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #tab-sheet .resource .meter::before,
+  #tab-sheet .resource .heroism-pips::before {
+    transition: none;
+  }
+}
