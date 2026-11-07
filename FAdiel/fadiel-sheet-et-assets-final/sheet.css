@@ -419,3 +419,21 @@ p { margin:5px 0; }
   position:absolute; top:160%; left:0; right:0; font-size:12px;
 }
 #tab-sheet .portrait-caption > span:empty { display:none; }
+
+/* Centrage du nom dans le cartouche ivoire */
+#tab-sheet .portrait-caption {
+  top: 90.2%;
+  bottom: auto;
+  left: 20%;
+  right: 20%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-50%);
+}
+
+#tab-sheet .portrait-caption strong {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
