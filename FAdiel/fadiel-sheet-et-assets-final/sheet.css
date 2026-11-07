@@ -1,8 +1,5 @@
-/* FA’DIEL — FEUILLE COMPLÈTE POUR HÉBERGEMENT EXTERNE
-   Publier sheet.css et le dossier assets côte à côte.
-   Dans CodePen, importer l’URL HTTPS publique de sheet.css.
-   HTML et JavaScript existants conservés. */
-/* Fa’Diel — habillage du HTML fourni. URLs relatives à CE fichier CSS.
+/* FA’DIEL — FEUILLE COMPLÈTE POUR HÉBERGEMENT EXTERNE */
+/* Fa’Diel — URLs relatives à CE fichier CSS.
    Les attributs data-*, les valeurs et les scripts métier sont conservés. */
 :root {
   --fd-ivory:#f7f1de; --fd-turquoise:#7ecfd1; --fd-blue:#4fafc4;
@@ -366,64 +363,59 @@ p { margin:5px 0; }
 #tab-sheet .identity-card::before,
 #tab-sheet .identity-card::after { pointer-events:none; }
 
-/* Jauges des ressources : PV, PM et Héroïsme */
-#tab-sheet .resource.hp {
-  --resource-color: #f29d84;
+/* RESSOURCES — remplissage fourni par le JavaScript existant de la démo. */
+#tab-sheet .resource.hp { --resource-color:#f29d84; }
+#tab-sheet .resource.mp { --resource-color:#8fbc8a; }
+#tab-sheet .resource.heroism { --resource-color:#d8b45a; }
+#tab-sheet .resource .meter {
+  display:block; position:relative; height:9px; min-height:0;
+  margin:12px 0 0; padding:0; overflow:hidden;
+  border:1px solid rgb(92 75 59 / 12%); border-radius:999px;
+  background:rgb(92 75 59 / 10%);
 }
-
-#tab-sheet .resource.mp {
-  --resource-color: #8fbc8a;
+#tab-sheet .resource .meter > * { display:none; }
+#tab-sheet .resource .meter::before {
+  content:""; position:absolute; inset:0 auto 0 0;
+  width:var(--resource-fill,0%); max-width:100%;
+  border-radius:inherit; background:var(--resource-color);
+  box-shadow:inset 0 1px 0 rgb(255 255 255 / 35%);
+  transition:width 250ms ease;
 }
-
-#tab-sheet .resource.heroism {
-  --resource-color: #d8b45a;
-}
-
-#tab-sheet .resource .meter,
-#tab-sheet .resource .heroism-pips {
-  display: block;
-  position: relative;
-  height: 9px;
-  min-height: 0;
-  margin: 12px 0 0;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid rgb(92 75 59 / 12%);
-  border-radius: 999px;
-  background: rgb(92 75 59 / 10%);
-}
-
-/* Héroïsme : restaurer les losanges */
+/* Héroïsme : un losange par point maximum. */
 #tab-sheet .resource.heroism .heroism-pips {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 7px;
-  height: auto;
-  min-height: 16px;
-  overflow: visible;
-  border: 0;
-  border-radius: 0;
-  background: none;
+  display:flex; position:relative; justify-content:center; align-items:center;
+  flex-wrap:wrap; gap:7px; height:auto; min-height:16px;
+  margin:12px 0 0; padding:2px; overflow:visible;
+  border:0; border-radius:0; background:none;
 }
-
-#tab-sheet .resource.heroism .heroism-pips::before {
-  content: none;
-}
-
+#tab-sheet .resource.heroism .heroism-pips::before { content:none; }
 #tab-sheet .resource.heroism .heroism-pips > * {
-  display: block;
-  flex: 0 0 11px;
-  width: 11px;
-  height: 11px;
-  border: 1px solid #d8b45a;
-  border-radius: 1px;
-  background: transparent;
-  transform: rotate(45deg);
+  display:block; flex:0 0 11px; width:11px; height:11px;
+  border:1px solid var(--resource-color); border-radius:1px;
+  background:transparent; transform:rotate(45deg);
 }
-
 #tab-sheet .resource.heroism .heroism-pips > .is-active,
 #tab-sheet .resource.heroism .heroism-pips > .filled {
-  background: #d8b45a;
+  background:var(--resource-color);
 }
+@media(prefers-reduced-motion:reduce) {
+  #tab-sheet .resource .meter::before { transition:none; }
+}
+
+/* PORTRAIT — nom centré dans le cartouche ivoire de l’asset. */
+#tab-sheet .portrait-card { position:relative; container-type:inline-size; }
+#tab-sheet .portrait-caption {
+  position:absolute; z-index:3; left:20%; right:20%; top:87%; height:9%;
+  display:flex; align-items:center; justify-content:center;
+  margin:0; padding:0; text-align:center;
+}
+#tab-sheet .portrait-caption strong {
+  display:block; min-width:0; max-width:100%; margin:0;
+  font-size:18px; font-size:clamp(12px,5.5cqw,21px);
+  font-weight:normal; line-height:1.15; color:#5c4b3b;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+#tab-sheet .portrait-caption > span {
+  position:absolute; top:160%; left:0; right:0; font-size:12px;
+}
+#tab-sheet .portrait-caption > span:empty { display:none; }
